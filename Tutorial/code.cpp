@@ -1,84 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/*PBDS*/
-
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
-
-using namespace __gnu_pbds;
-
-/* ---------- TYPES ---------- */
-typedef long long ll;
-
-template<typename T>
-using ordered_set = tree<
-    T,
-    null_type,
-    less<T>,
-    rb_tree_tag,
-    tree_order_statistics_node_update
->;
-
-template<typename T>
-using ordered_multiset = tree<
-    pair<T, int>,
-    null_type,
-    less<pair<T, int>>,
-    rb_tree_tag,
-    tree_order_statistics_node_update
->;
-
-template <class T>
-inline bool minn(T& a, const T& b) {
-        return b < a ? a = b, 1 : 0;
-}
-
-template <class T>
-inline bool maxx(T& a, const T& b) {
-        return a < b ? a = b, 1 : 0;
-}
-
-/* ---------- FAST IO ---------- */
-#define fastio ios::sync_with_stdio(false); cin.tie(nullptr);
-
-/* ---------- LOOP ---------- */
-#define rep(i,n) for(int i=0;i<n;i++)
-#define per(i,n) for(int i=n-1;i>=0;i--)
-#define rep2(i,l,r) for(int i=l;i<r;i++)
-
-/* ---------- SHORTCUTS ---------- */
-#define PB push_back
-#define PPB pop_back
-#define all(v) v.begin(), v.end()
-#define rall(v) v.rbegin(), v.rend()
-#define LB lower_bound
-#define UB upper_bound
-#define F first
-#define S second
-#define SZ(x) (int) (x).size()
-
-int popcnt(int x) { return __builtin_popcount(x); }
-int popcnt(ll x) { return __builtin_popcountll(x); }
-
-const ll INF = 1e18;
-const ll MOD = 1e9 + 7;
-
 /* ---------- PRINT SHORTCUT ---------- */
 #define yes cout << "Yes\n"
 #define no cout << "No\n"
 #define nl cout << "\n"
 #define sp cout << " "
-
-/* ---------- MATH ---------- */
-#define gcd(a,b) __gcd(a,b)
-#define lcm(a,b) ((a) / gcd(a,b) * (b))
-
-/* ---------- VECTOR SHORTCUT ---------- */
-#define vll vector<ll>
-#define vi vector<int>
-#define vecin(v,n) vector<ll> v(n); rep(i,n) cin >> v[i];
-#define vecout(v) for(auto &x:v) cout << x << ' '; nl;
 
 void solve(){
 
@@ -161,6 +88,14 @@ void solve(){
     // if odd return 1 else even return 0
 
     cout<<__builtin_parity(n);
+
+    // Important tricks
+    // n =  1000 (8)
+    // n-1= 0111 (7)
+// It Means - Any power of 2 value minus 1 korle lastbit 1 er por theke sob gula bit set hoye jay ar oi last set bit ta unset hoy
+
+    // ete kore amra caile o(1) ei ekta value power of 2 kina seta dekhte pari  --->   if(n&(n-1)) yes
+                                                                                    // else no
 
 
 }
